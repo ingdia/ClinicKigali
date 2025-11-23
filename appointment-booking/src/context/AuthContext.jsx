@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }) => {
   // initialize from localStorage
   useEffect(() => {
     const raw = localStorage.getItem("kc_auth");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (raw) setUser(JSON.parse(raw));
     setLoading(false);
   }, []);
@@ -45,4 +46,5 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => useContext(AuthContext);
